@@ -76,7 +76,7 @@ Before starting, ensure you have the following installed:
 - Avro schemas for serialization/deserialization are managed by Schema Registry to maintain compatibility between producer and consumer.
 
 ### **Kafka Producer**
-- The Kafka producer script (kafka_producer.py) reads logistics data from a CSV file using Pandas, serializes it into Avro format using an Avro schema fetched from Schema Registry, and publishes messages to Kafka.
+- The Kafka producer script (kafka_producer.py) serializes data into Avro format using an Avro schema fetched from Schema Registry, and publishes messages to Kafka.
 
 ### **Kafka Consumer**
 - The Kafka consumer script (kafka_consumer.py) subscribes to the Kafka topic, deserializes Avro data using the schema fetched from Schema Registry and inserts valid records into MongoDB.
