@@ -1,8 +1,8 @@
-### Logistics Data Processing with Kafka and MongoDB
+### Fedex Data Streaming Pipeline with Kafka and MongoDB
 
-This project integrates Kafka and MongoDB to process logistics data, using Avro for data serialization/deserialization. It includes a Kafka producer and consumer, along with an API for MongoDB interaction.
+This repository provides a framework for building a data streaming pipeline using Kafka and MongoDB, aimed at visualizing logistics data through a dashboard
 
-![alt text](/logistics_data_processing/diagram.png)
+![alt text](/diagram.png)
 ---
 
 ### Table of Contents
@@ -14,15 +14,14 @@ This project integrates Kafka and MongoDB to process logistics data, using Avro 
 5. [Schema Registry](#schema-registry)
 6. [Kafka Producer](#kafka-producer)
 7. [Kafka Consumer](#kafka-consumer)
-8. [Data Validation](#data-validation)
-9. [API Development](#api-development)
+8. [Data Visualization](#data-validation)
 
 
 ---
 
 ### Introduction
 
-This project aims to demonstrate how to process logistics data using Kafka and MongoDB. It includes a Kafka producer that reads logistics data from a CSV file, serializes it into Avro format, and publishes it to a Kafka topic. A Kafka consumer subscribes to this topic, deserializes the Avro data, performs data validation, and ingests it into MongoDB. Additionally, an API is developed to interact with the MongoDB collection.
+This project demonstrates a robust data processing pipeline using Kafka and MongoDB, designed for handling logistics data. The pipeline includes a Kafka producer that generates and publishes Avro serialized data to a Kafka topic. A Kafka consumer subscribes to this topic, validates, deserializes the Avro data, and then ingests it into MongoDB. Additionally, visualizations are created directly within MongoDB Atlas to provide insightful analytics and reporting capabilities for the logistics data
 
 ---
 
@@ -42,7 +41,7 @@ Before starting, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   https://github.com/iamsnkr/kafka_logistics_data_processing.git
+   https://github.com/iamsnkr/fedex_logistics_stream_data_pipeline.git
    cd repository
    ```
 2. **Install dependencies:**
@@ -53,7 +52,7 @@ Before starting, ensure you have the following installed:
 3. **Set up Kafka and MongoDB:**
 
 - Install and configure Kafka according to the official documentation.
-- Set up MongoDB and create a database and collection for storing logistics data.
+- Set up MongoDB and create a database and collection for storing data.
 
 ### Usage
 1. **Start Kafka:**
@@ -80,8 +79,8 @@ Before starting, ensure you have the following installed:
 - The Kafka producer script (kafka_producer.py) reads logistics data from a CSV file using Pandas, serializes it into Avro format using an Avro schema fetched from Schema Registry, and publishes messages to Kafka.
 
 **Kafka Consumer**
-- The Kafka consumer script (kafka_consumer.py) subscribes to the Kafka topic, deserializes Avro data using the schema fetched from Schema Registry, validates the data (e.g., null value checks, data type validation), and inserts valid records into MongoDB.
+- The Kafka consumer script (kafka_consumer.py) subscribes to the Kafka topic, deserializes Avro data using the schema fetched from Schema Registry and inserts valid records into MongoDB.
 
-**Data Validation**
-- Data validation in the consumer script includes checks for null values, data type validation, and format checks. Assumptions made include assuming a specific structure and format of incoming logistics data.
+**Data Visualization**
+- Visualizing FedEx logistics information involves transforming the data stored in MongoDB into meaningful charts or graphs that provide insights into various aspects of the shipment.
 
